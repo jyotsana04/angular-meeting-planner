@@ -1,0 +1,22 @@
+.container {
+    width: 35%;
+    
+    
+  }
+  
+  
+  input{
+    font-size: 150%
+  }
+  
+  
+  
+  label{
+    font-size: 20px;
+  }
+  
+  button{
+    width: 50%;
+    font-size: 15px;
+   
+  }

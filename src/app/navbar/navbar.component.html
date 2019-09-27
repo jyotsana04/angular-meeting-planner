@@ -1,0 +1,65 @@
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" style="color:white">Meeting Planner</a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/calender']">calendar</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/signup']">SignUp</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/login']">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+
+    </div>
+</nav>
+
+<!--<nav class="navbar navbar-inverse" style="font-size: 15px">
+    <div class="container-fluid" style="display: inline">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <span class="navbar-brand" style="font-size: 15px; color:white">Meeting Planner</span> 
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar" >
+        <ul class="nav navbar-nav" style="display: inline">
+          <li ><a [routerLink]="['/home']">Home</a></li>
+          <li ><a [routerLink]="['/dashboard']">Dashboard</a></li>
+          
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="display: inline" >
+          <li *ngIf="!(LoginStatus$ | async) as LoginStatus"><a *ngIf="LoginStatus" [routerLink]="['/signup']" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li *ngIf="!(LoginStatus$ | async) as LoginStatus"><a [routerLink]= "['/login']" *ngIf="LoginStatus" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li *ngIf="(LoginStatus$ | async) as LoginStatus"><a *ngIf="LoginStatus" (click)="logout()" ><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+-->
+
