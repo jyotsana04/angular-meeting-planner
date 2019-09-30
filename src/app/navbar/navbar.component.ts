@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {ToastrService} from 'ngx-toastr'
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr'
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { UserHttpService } from '../user-http.service';
-import {Observable} from 'rxjs'
+import { Observable } from 'rxjs'
 import { AuthService } from '../auth.service';
+import { SocketService } from '../socket.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,24 +14,13 @@ import { AuthService } from '../auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  
-  LoginStatus$ :Observable<boolean>
 
-
-
-  constructor(private authService:AuthService, private router:Router, private toastr:ToastrService) {
-    console.log('navbar')
-   }
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService, private SocketService: SocketService) { }
 
   ngOnInit() {
 
-   // this.isLoggedIn$ = this.authService.isLoggedIn;
-    //console.log(this.isLoggedIn$)
-    
-this.LoginStatus$ = this.authService.isLoggedIn
   }
 
-  
   public logout: any = () => {
 
     this.authService.logout()
@@ -42,7 +32,7 @@ this.LoginStatus$ = this.authService.isLoggedIn
           Cookie.delete('receiverId');
           Cookie.delete('receiverName');
           Cookie.delete('userName');
-          //this.SocketService.exitSocket()
+          this.SocketService.exitSocket()
 
           this.router.navigate(['/home']);
 
@@ -53,13 +43,12 @@ this.LoginStatus$ = this.authService.isLoggedIn
           Cookie.delete('receiverId');
           Cookie.delete('receiverName');
           Cookie.delete('userName');
-          this.router.navigate(['/login']);
+          this.SocketService.exitSocket()
+          this.router.navigate(['/home']);
         } // end condition
 
       }, (err) => {
         this.toastr.error('some error occured')
-
-
       });
 
   } // end logout

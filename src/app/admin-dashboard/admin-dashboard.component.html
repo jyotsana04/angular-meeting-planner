@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container">
     <h3>List of all the Users</h3>
     <div class="table-responsive" *ngIf='allUsers.length>0'>
         <table class="table">
@@ -11,7 +11,7 @@
             </thead>
             <tbody>
                 <tr *ngFor='let user of allUsers'>
-                    
+
                     <td>{{user.firstName}}</td>
                     <td>{{user.lastName}}</td>
                     <td>{{user.mobileNumber}}</td>
@@ -20,13 +20,4 @@
             </tbody>
         </table>
     </div>
-</div>
-
-<div class="container" style="float: right">
-    <h3>Online user list</h3>
-    <div *ngFor="let onlineuser of userList">
-        <span>{{onlineuser}}</span>
-
-    </div>
-
 </div>

@@ -12,30 +12,30 @@ export class ForgotPasswordComponent implements OnInit {
 
   public userEmail
 
-  constructor(private userHttpService:UserHttpService, private router:Router, private toastr:ToastrService) { }
+  constructor(private userHttpService: UserHttpService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
-  public sendForgotToken(){
- 
-    let email=this.userEmail;
+  public sendForgotToken() {
 
-    this.userHttpService.forgotPassword(email).subscribe((apiResponse)=>{
+    let email = this.userEmail;
 
-      if(apiResponse.status==200){
+    this.userHttpService.forgotPassword(email).subscribe((apiResponse) => {
+
+      if (apiResponse.status == 200) {
         this.toastr.info('Please check your registered mail for password reset options')
-        
-      }else{
+
+      } else {
         this.toastr.error(apiResponse.message)
       }
     },
-    (err)=>{
-      console.log(err)
-      this.toastr.error('User Not Found, Signup'+err)
-    }
+      (err) => {
+        console.log(err)
+        this.toastr.error('User Not Found, Signup' + err)
+      }
     )
-    
+
 
   }
 

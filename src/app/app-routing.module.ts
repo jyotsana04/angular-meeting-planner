@@ -9,8 +9,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomeComponent } from './home/home.component';
 import { RouteGuardService } from './route-guard.service';
 import { Event2Component } from './event2/event2.component';
-import { SamplemodalComponent } from './samplemodal/samplemodal.component';
 import { RoleGuardService } from './role-guard.service';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},  
@@ -21,7 +21,8 @@ const routes: Routes = [
   {path:'forgot', component:ForgotPasswordComponent},
   {path:'reset/:token', component:ResetPasswordComponent},
   {path:'dashboard', component:AdminDashboardComponent, canActivate:[RoleGuardService]},
-  {path:'event2/:userId', component:Event2Component,canActivate:[RoleGuardService]}
+  {path:'event2/:userId', component:Event2Component,canActivate:[RoleGuardService]},
+  {path:'**', component:PagenotfoundComponent}
     
 ];
 

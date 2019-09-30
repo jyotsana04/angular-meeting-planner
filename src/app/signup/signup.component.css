@@ -1,19 +1,23 @@
 *{box-sizing: border-box}
 
 /* Full-width input fields */
-  input[type=text], input[type=password], input[type=number],input[type=email] {
+  input[type=text], input[type=password], input[type=number],input[type=email], select {
   width: 100%;
-  padding: 5px;
+  padding: 2px;
   margin: 5px 0 2px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1;
-  font-size: 150%
+  font-size: 20px;
 }
 
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
+}
+
+.help-block{
+  color: red;
 }
 
 label{
@@ -42,11 +46,9 @@ button:hover {
   opacity:1;
 }
 
-/* Extra styles for the cancel button */
 
-
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+/* Float login and signup buttons and add an equal width */
+.loginbtn, .signupbtn {
   float: left;
   width: 50%;
   border-style: solid;
@@ -66,9 +68,13 @@ button:hover {
   display: table;
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
+/* Change styles for login button and signup button on extra small screens */
+@media only screen and (max-width: 400px) {
+  .loginbtn, .signupbtn {
     width: 100%;
+  }
+
+  .container{
+    width: 90%
   }
 }

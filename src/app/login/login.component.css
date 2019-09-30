@@ -8,7 +8,9 @@
   input{
     font-size: 150%
   }
-  
+  .help-block{
+    color: red;
+  }
   
   
   label{
@@ -20,3 +22,12 @@
     font-size: 15px;
    
   }
+
+  /* Change styles for login button and signup button on extra small screens */
+@media only screen and (max-width: 400px) {
+  
+
+  .container{
+    width: 90%
+  }
+}
